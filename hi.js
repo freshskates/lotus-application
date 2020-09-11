@@ -1,13 +1,20 @@
 let input = document.getElementById("search1");
 
 const Http = new XMLHttpRequest();
-const url='https://api.mojang.com/users/profiles/minecraft/rawbert';
-Http.open("GET", url);
-Http.send();
 
-Http.onreadystatechange = (e) => {
-  console.log(Http.responseText)
+async function getname(){
+
+  const url='https://api.mojang.com/users/profiles/minecraft/rawbert';
+  const response = await fetch(url);
+  const data = await response.json(); 
+  console.log(data);
+
 }
+
+getname();
+
+
+
 
 
 input.addEventListener("keyup", function(event) {
