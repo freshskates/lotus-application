@@ -1,21 +1,14 @@
 let input = document.getElementById("search1");
 
+const Http = new XMLHttpRequest();
+const url='https://api.mojang.com/users/profiles/minecraft/rawbert';
+Http.open("GET", url);
+Http.send();
 
-function s(string){
-
-
-/* d3.csv("db1.csv", function(data){
-console.log(data);
-});
+Http.onreadystatechange = (e) => {
+  console.log(Http.responseText)
 }
-*/
-let FILE_LOCATION = './db1.csv';
-fs.readFile(FILE_LOCATION, function (err, data) {
-    if (err) throw err;
-    if(data.includes('search string')){
-     console.log(data)
-    }
-  });
+
 
 input.addEventListener("keyup", function(event) {
     // Number 13 is the "Enter" key on the keyboard
@@ -29,7 +22,7 @@ input.addEventListener("keyup", function(event) {
     }
   }); 
 
-}
+
 
   /*
       data.array.forEach(element => {
